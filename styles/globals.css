@@ -1,0 +1,121 @@
+/* styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Defina a variável CSS para a fonte Bebas Neue */
+@layer base {
+  :root {
+    --font-bebas-neue: "Bebas Neue", sans-serif;
+  }
+}
+
+/* Aplique a fonte Bebas Neue a todos os elementos por padrão */
+html,
+body {
+  font-family: var(--font-bebas-neue);
+  background: linear-gradient(to top left, #ffffff, #f4f4f4, #ffffff);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-bebas-neue);
+}
+
+/* Estilos para os dots da paginação customizada (Swiper) */
+/* Posiciona os dots abaixo do slider */
+.swiper-pagination-new-arrivals,
+.swiper-pagination-featured-products {
+  position: absolute;
+  bottom: 0; /* Ajuste conforme o padding-bottom do Swiper */
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto !important; /* Garante que não ocupe 100% da largura */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10; /* Garante que fiquem acima de outros elementos */
+}
+
+/* Estilo individual para cada dot */
+.swiper-pagination-bullet {
+  background: #927c6c !important; /* Cor dos dots (areia escura) */
+  opacity: 0.4 !important; /* Opacidade dos dots inativos */
+  width: 10px !important; /* Tamanho do dot */
+  height: 10px !important; /* Tamanho do dot */
+  margin: 0 4px !important; /* Espaçamento entre os dots */
+  transition: opacity 0.3s, background-color 0.3s;
+}
+
+/* Estilo para o dot ativo */
+.swiper-pagination-bullet-active {
+  opacity: 1 !important; /* Dot ativo totalmente visível */
+  background: #927c6c !important; /* Cor do dot ativo */
+}
+
+/* Estilos para as setas de navegação customizadas (Swiper) */
+/* As setas são posicionadas dentro do SwiperNavButtons, que já tem absolute */
+/* Apenas para garantir que os links não sejam clicáveis através das setas */
+.swiper-button-prev-new-arrivals,
+.swiper-button-next-new-arrivals,
+.swiper-button-prev-featured-products,
+.swiper-button-next-featured-products {
+  /* Estas classes são adicionadas pelo Swiper automaticamente se você usar navigation: { nextEl, prevEl } */
+  /* No nosso caso, estamos usando um componente customizado SwiperNavButtons, então estas classes podem não ser necessárias */
+  /* Mas é bom tê-las para garantir compatibilidade ou se você mudar de ideia */
+  color: white !important; /* Cor das setas */
+  width: 40px !important; /* Largura do botão */
+  height: 40px !important; /* Altura do botão */
+  background-color: rgba(0, 0, 0, 0.2) !important; /* Fundo semi-transparente */
+  border-radius: 50% !important; /* Circular */
+  transition: background-color 0.3s;
+}
+
+.swiper-button-prev-new-arrivals:hover,
+.swiper-button-next-new-arrivals:hover,
+.swiper-button-prev-featured-products:hover,
+.swiper-button-next-featured-products:hover {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ) !important; /* Fundo mais escuro no hover */
+}
+
+/* Em seu globals.css (ou arquivo de módulo CSS) */
+
+/* Importações do Tailwind aqui, se ainda não estiverem */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Classes de Sombra Gradiente Branco e Preto para Texto --- */
+
+/* 1. Sombra Gradiente Suave (para um efeito de profundidade sutil) */
+.text-shadow-gradient-bw-soft {
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7),
+    /* Branco translúcido para o topo/esquerda */ 2px 2px 2px
+      rgba(150, 150, 150, 0.6),
+    /* Cinza médio para o meio */ 3px 3px 3px rgba(0, 0, 0, 0.5); /* Preto translúcido para a parte mais profunda */
+}
+
+/* 2. Sombra Gradiente Dramática (para um contraste mais forte) */
+.text-shadow-gradient-bw-dramatic {
+  text-shadow: -2px -2px 0px white,
+    /* Contorno branco nítido no topo/esquerda */ 2px 2px 4px rgba(0, 0, 0, 0.8),
+    /* Sombra preta mais forte no canto inferior/direito */ 4px 4px 8px
+      rgba(0, 0, 0, 0.6); /* Camada de preto mais espalhada para profundidade */
+}
+
+/* 3. Sombra Gradiente com Brilho (para um efeito "offset glow") */
+/* Ideal para texto escuro em fundo claro ou texto claro em fundo escuro */
+.text-shadow-gradient-bw-glow {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+    /* Brilho branco próximo ao texto */ 1px 1px 10px rgba(0, 0, 0, 0.6),
+    /* Sombra preta deslocada e mais difusa */ -2px -2px 8px rgba(200, 200, 200); /* Leve realce branco na direção oposta */
+}
